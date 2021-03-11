@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-class AppointmentPage extends StatelessWidget {
+/*class AppointmentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,4 +42,4 @@ class AppointmentPage extends StatelessWidget {
     );
   }
 }
-
+*/

@@ -42,7 +42,8 @@ class _SplashPageState extends State<SplashPage> {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       tileMode: TileMode.mirror,
-                      stops: [.5, 6]),
+                      stops: [.5, 6]
+                  ),
                 ),
               ),
             ),

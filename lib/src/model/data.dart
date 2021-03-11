@@ -1,7 +1,7 @@
 final doctorMapList = [
   {
     "name": "Dr. David Kemp",
-    "type": "Heart Sergeon",
+    "type": "Heart Surgeon",
     "rating": 4.5,
     "goodReviews": 79.2,
     "totalScore": 93.2,
@@ -23,7 +23,7 @@ final doctorMapList = [
   },
   {
     "name": "DR. Morris",
-    "type": "Cardio Sergeon",
+    "type": "Cardio Surgeon",
     "rating": 2.5,
     "goodReviews": 88.2,
     "totalScore": 93.94,
@@ -34,7 +34,7 @@ final doctorMapList = [
   },
   {
     "name": "Dr. Bruce Banner",
-    "type": "Heart Sergeon",
+    "type": "Heart Surgeon",
     "rating": 1.5,
     "goodReviews": 12.2,
     "totalScore": 75.2,

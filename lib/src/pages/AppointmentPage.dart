@@ -8,7 +8,7 @@ class AppointmentPage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('go back'),
+          child: Text('Back to Home'),
           onPressed: () {
             // Navigate to the second screen using a named route.
             Navigator.pushNamed(context, '/HomePage');
