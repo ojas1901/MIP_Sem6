@@ -11,6 +11,8 @@ class Routes {
       '/': (_) => SplashPage(),
       '/HomePage': (_) => HomePage(),
       '/Appointment':(_) => AppointmentPage(),
+     // '/SearchDoctor':(_) => AppointmentPage(),
+
     };
   }
 

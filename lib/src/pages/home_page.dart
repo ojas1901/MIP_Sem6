@@ -119,13 +119,14 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               _categoryCard("Get Help From Our Chatbot", "",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
-              _categoryCard( "View Appointments","",
+              _categoryCard("View Appointments","",
                   color: LightColor.skyBlue, lightColor: LightColor.lightBlue),
               _categoryCard("Schedule a New Appointment", "",
                   color: LightColor.orange, lightColor: LightColor.lightOrange),
               _categoryCard("Profile&Settings","",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
             ],
+
           ),
         ),
       ],
@@ -133,6 +134,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _categoryCard(String title, String subtitle,{Color color, Color lightColor}) {
+
      TextStyle titleStyle = TextStyles.title.bold.white;
      TextStyle subtitleStyle = TextStyles.body.bold.white;
      if(AppTheme.fullWidth(context) < 392){
