@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_healthcare_app/src/model/dactor_model.dart';
 import 'package:flutter_healthcare_app/src/model/data.dart';
+import 'package:flutter_healthcare_app/src/pages/AppointmentPage.dart';
 import 'package:flutter_healthcare_app/src/theme/extention.dart';
 import 'package:flutter_healthcare_app/src/theme/light_color.dart';
 import 'package:flutter_healthcare_app/src/theme/text_styles.dart';
@@ -18,10 +19,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<DoctorModel> doctorDataList;
   @override
-  void initState() { 
-    doctorDataList = doctorMapList.map((x)=> DoctorModel.fromJson(x)).toList();
+  void initState() {
+    doctorDataList = doctorMapList.map((x) => DoctorModel.fromJson(x)).toList();
     super.initState();
   }
+
   Widget _appBar() {
     return AppBar(
       elevation: 0,
@@ -117,84 +119,99 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              _categoryCard("Get Help From Our Chatbot", "",
+              _categoryCard("Get Help From Our Chatbot", "chatbot",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
-              _categoryCard("View Appointments","",
+              _categoryCard("View Appointments", "view_appt",
                   color: LightColor.skyBlue, lightColor: LightColor.lightBlue),
-              _categoryCard("Schedule a New Appointment", "",
+              _categoryCard("Schedule a New Appointment", "book_appt",
                   color: LightColor.orange, lightColor: LightColor.lightOrange),
-              _categoryCard("Profile&Settings","",
+              _categoryCard("Profile&Settings", "profile",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
             ],
-
           ),
         ),
       ],
     );
   }
 
-  Widget _categoryCard(String title, String subtitle,{Color color, Color lightColor}) {
-
-     TextStyle titleStyle = TextStyles.title.bold.white;
-     TextStyle subtitleStyle = TextStyles.body.bold.white;
-     if(AppTheme.fullWidth(context) < 392){
-       titleStyle = TextStyles.body.bold.white;
-       subtitleStyle = TextStyles.bodySm.bold.white;
-     }
-    return AspectRatio(
-      aspectRatio: 6 / 8,
-      child: Container(
-        height: 280,
-        width: AppTheme.fullWidth(context) * .3,
-        margin: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 10),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              offset: Offset(4, 4),
-              blurRadius: 10,
-              color: lightColor.withOpacity(.8),
-            )
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          child: Container(
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  top: -20,
-                  left: -20,
-                  child: CircleAvatar(
-                    backgroundColor: lightColor,
-                    radius: 60,
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Flexible(
-                      child: Text(
-                        title,
-                        style: titleStyle
-                      ).hP8,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Flexible(
-                      child: Text(
-                        subtitle,
-                        style: subtitleStyle,
-                      ).hP8,
-                    ),
-                  ],
-                ).p16
-              ],
-            ),
+  Widget _categoryCard(String title, String subtitle,
+      {Color color, Color lightColor}) {
+    TextStyle titleStyle = TextStyles.title.bold.white;
+    //  TextStyle subtitleStyle = TextStyles.body.bold.white;
+    if (AppTheme.fullWidth(context) < 392) {
+      titleStyle = TextStyles.body.bold.white;
+      //  subtitleStyle = TextStyles.bodySm.bold.white;
+    }
+    return InkWell(
+      onTap: () {
+        if (subtitle == "book_appt") {
+          // AppointmentPage();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AppointmentPage()),
+          );
+        }
+        print(subtitle);
+        print("pressed");
+        // print("Tapped");
+      },
+      // behavior: HitTestBehavior.translucent,
+      // onTap: () {
+      //   print(subtitle);
+      //   print("tapped");
+      // },
+      child: AspectRatio(
+        aspectRatio: 6 / 8,
+        child: Container(
+          height: 280,
+          width: AppTheme.fullWidth(context) * .3,
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 10),
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                offset: Offset(4, 4),
+                blurRadius: 10,
+                color: lightColor.withOpacity(.8),
+              )
+            ],
           ),
-        ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Container(
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    top: -20,
+                    left: -20,
+                    child: CircleAvatar(
+                      backgroundColor: lightColor,
+                      radius: 60,
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Flexible(
+                        child: Text(title, style: titleStyle).hP8,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      // Flexible(
+                      //   child: Text(
+                      //     subtitle,
+                      //     style: subtitleStyle,
+                      //   ).hP8,
+                      // ),
+                    ],
+                  ).p16
+                ],
+              ),
+            ),
+          ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+        ),
       ),
     );
   }
@@ -217,19 +234,18 @@ class _HomePageState extends State<HomePage> {
             ],
           ).hP16,
           getdoctorWidgetList()
-          
-          
         ],
       ),
     );
   }
-  Widget getdoctorWidgetList(){
-     return Column(
-       children: doctorDataList.map((x){
-            return  _doctorTile(x);
-          }).toList()
-     );
+
+  Widget getdoctorWidgetList() {
+    return Column(
+        children: doctorDataList.map((x) {
+      return _doctorTile(x);
+    }).toList());
   }
+
   Widget _doctorTile(DoctorModel model) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -272,7 +288,7 @@ class _HomePageState extends State<HomePage> {
           ),
           title: Text(model.name, style: TextStyles.title.bold),
           subtitle: Text(
-           'General',
+            'General',
             style: TextStyles.bodySm.subTitleColor.bold,
           ),
           trailing: Icon(
