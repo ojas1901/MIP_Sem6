@@ -28,17 +28,17 @@ class _HomePageState extends State<HomePage> {
     return AppBar(
       elevation: 0,
       backgroundColor: Theme.of(context).backgroundColor,
-      leading: Icon(
+      /*leading: Icon(
         Icons.short_text,
         size: 30,
         color: Colors.black,
-      ),
+      ), */
       actions: <Widget>[
-        Icon(
+        /*Icon(
           Icons.notifications_none,
           size: 30,
           color: LightColor.grey,
-        ),
+        ), */
         ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(13)),
           child: Container(
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
       children: <Widget>[
         Padding(
           padding: EdgeInsets.only(top: 8, right: 16, left: 16, bottom: 4),
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text("Categories", style: TextStyles.title.bold),
@@ -114,10 +114,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SizedBox(
-          height: AppTheme.fullHeight(context) * .28,
+          height: AppTheme.fullHeight(context),
           width: AppTheme.fullWidth(context),
           child: ListView(
-            scrollDirection: Axis.horizontal,
+            scrollDirection: Axis.vertical,
             children: <Widget>[
               _categoryCard("Get Help From Our Chatbot", "chatbot",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                   color: LightColor.skyBlue, lightColor: LightColor.lightBlue),
               _categoryCard("Schedule a New Appointment", "book_appt",
                   color: LightColor.orange, lightColor: LightColor.lightOrange),
-              _categoryCard("Profile&Settings", "profile",
+              _categoryCard("Profile & Settings", "profile",
                   color: LightColor.green, lightColor: LightColor.lightGreen),
             ],
           ),
@@ -161,11 +161,11 @@ class _HomePageState extends State<HomePage> {
       //   print("tapped");
       // },
       child: AspectRatio(
-        aspectRatio: 6 / 8,
+        aspectRatio: 16/ 5,
         child: Container(
           height: 280,
           width: AppTheme.fullWidth(context) * .3,
-          margin: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 10),
+          margin: EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 10),
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -216,7 +216,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _doctorsList() {
+
+
+
+
+
+
+  /*Widget _doctorsList() {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
@@ -302,7 +308,7 @@ class _HomePageState extends State<HomePage> {
       }, borderRadius: BorderRadius.all(Radius.circular(20))),
     );
   }
-
+*/
   Color randomColor() {
     var random = Random();
     final colorList = [
@@ -338,7 +344,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          _doctorsList()
+          //_doctorsList()
         ],
       ),
     );

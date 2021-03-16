@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_healthcare_app/src/pages/detail_page.dart';
 import 'package:flutter_healthcare_app/src/pages/home_page.dart';
+import 'package:flutter_healthcare_app/src/pages/home_page_doctor.dart';
 import 'package:flutter_healthcare_app/src/pages/splash_page.dart';
 import 'package:flutter_healthcare_app/src/widgets/coustom_route.dart';
 import 'package:flutter_healthcare_app/src/pages/AppointmentPage.dart';
@@ -11,7 +12,8 @@ class Routes {
       '/': (_) => SplashPage(),
       '/HomePage': (_) => HomePage(),
       '/Appointment':(_) => AppointmentPage(),
-     // '/SearchDoctor':(_) => AppointmentPage(),
+      '/HomePageDoctor': (_) => HomePageDoctor(),
+      // '/SearchDoctor':(_) => AppointmentPage(),
 
     };
   }
